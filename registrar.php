@@ -27,7 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Adicionar Usuário</title>
 </head>
 <body>
-    <h1>Adicionar Usuário</h1>
+    <main>
+    <h1>cadastrar Usuário</h1>
+    
     <form method="POST">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" required>
@@ -51,5 +53,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br><br>
         <input type="submit" value="Adicionar">
     </form>
+    </main>
 </body>
+
 </html>
+<style>
+    
+    *{
+        margin:0;
+    }
+    body {
+        background-color: #a395c5;
+    }
+</style>

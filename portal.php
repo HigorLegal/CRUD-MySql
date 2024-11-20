@@ -46,6 +46,7 @@ function saudacao() {
 <body>
     <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
     <a href="registrar.php">Adicionar Usuário</a>
+    <a href="gerenciador.php">gerenciar noticias</a>
     <a href="logout.php">Logout</a>
 <br><main>
     

@@ -1,73 +1,97 @@
 <?php
-//esse comando e um cokie mais seguro (isso oque o professor falou)
-session_start();
 
 include_once './config/config.php';
-include_once './classes/Usuario.php';
+include_once './classes/noticia.php';
+include_once './classes/usuario.php';
 
-//instanciando o obj da class usuario
-$usuario = new Usuario($db);
 
-//formulario
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if (isset($_POST['login'])) {
-        // Processar login
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+$noticia = new noticia($db);
 
-        if ($dados_usuario = $usuario->login($email, $senha)) {
-            //a variavel global session ela cria um acesso (basicamente se nao tiver esse aceso ele nao pode entrar em portal.php 
-            //ex:nao da para ir de cadastro para portal porque nao tem essa credencial)
-            $_SESSION['usuario_id'] = $dados_usuario['id'];
-            //vai pra portal.php
-            header('Location: portal.php');
+$dados = $noticia->ler();
 
-            exit();
-        } else {
 
-            $mensagem_erro = "Credenciais inválidas!";
-        }
+// Função para determinar a saudação
+function saudacao() {
+    $hora = date('H');
+    if ($hora >= 6 && $hora < 12) {
+        return "Bom dia";
+    } elseif ($hora >= 12 && $hora < 18) {
+        return "Boa tarde";
+    } else {
+        return "Boa noite";
     }
 }
 ?>
 <!DOCTYPE html>
-<html>
-
-
+<html lang="pt-br">
 <head>
-    <title>A U T E N T I C A Ç Ã O</title>
-
+    <meta charset="UTF-8">
+    <title>portal de noticias</title>
 </head>
-
-
 <body>
+  
 
+    <a href="login.php">logar</a>
+<br>
 
-    <div class="container">
+<main>
+<?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+            <?php  
+            $usuario = new Usuario($db);
+            $infoUsu = $usuario->lerPorId($row['autor']);
+               echo"<div id='noticia'>";
+             
+               
+               echo "<div id='foto'><img src='".$row['foto']."' alt='imagem da noticia'></div>"; 
+               
+               echo "<div id='info'><h1>".$row['titulo']."</h1>";
+               echo "<p>".$row['noticia']."</p><br><br>"; 
+               echo "por: ".$infoUsu['nome']."<br><br>"; 
+               echo $row['data'];
+                  
+                 
+               
+                    
+    
+             echo "</div></div>";?>
+        <?php endwhile; ?>
 
+    </main>
+</body> </html>
 
-        <div class="box">
-            <h1>A U T E N T I C A Ç Ã O</h1>
+<style>
 
+    body{
+        background-color: #a395c5;
+    }
 
-            <form method="POST">
-                <label for="email">Email:</label>
-                <input type="email" name="email" required>
-                <br><br>
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" required>
-                <br><br>
-                <input type="submit" name="login" value="Login">
-            </form>
-            <p>Não tem uma conta? <a href="./registrar.php">Registre-se aqui</a></p>
-            <div class="mensagem">
-                <?php if (isset($mensagem_erro)) echo '<p>' . $mensagem_erro . '</p>'; ?>
-            </div>
-        </div>
+    main div{
+background-color: white;
 
-
-</body>
-
-
-</html>
+    }
+    main{
+        display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    }
+    #noticia h1{
+        color: red;
+    }
+    #noticia{
+        width: 500px;
+        margin-bottom: 20px;
+        border-radius: 30px;
+        padding: 20px;
+display: flex;
+flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    }
+    
+    img{
+height: 90%;
+width: 90%;
+    }
+</style>
