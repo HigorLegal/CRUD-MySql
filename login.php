@@ -34,10 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html>
-
-<head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>A U T E N T I C A Ç Ã O</title>
-
+<link rel="stylesheet" href="root.css">
 </head>
 
 
@@ -78,13 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         padding: 10px;
     }
 
-    * {
-        margin: 0;
-    }
-
-    body {
-        background-color: #a395c5;
-    }
+ 
+    
 
     #button {
         color: white;
@@ -122,11 +120,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         align-items: center;
     }
 
-    header {
-        margin-bottom: 50px;
-        text-align: center;
-        padding: 20px;
-        color: white;
-        background-color: black;
-    }
+ 
 </style>

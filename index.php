@@ -3,6 +3,8 @@
 include_once './config/config.php';
 include_once './classes/noticia.php';
 include_once './classes/usuario.php';
+//claro
+
 
 
 
@@ -12,7 +14,8 @@ $dados = $noticia->ler();
 
 
 // Função para determinar a saudação
-function saudacao() {
+function saudacao()
+{
     $hora = date('H');
     if ($hora >= 6 && $hora < 12) {
         return "Bom dia";
@@ -25,73 +28,95 @@ function saudacao() {
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>portal de noticias</title>
+    <link rel="stylesheet" href="root.css">
 </head>
+
 <body>
-  
+<header>
+<h1>Noticias</h1>
+
+</header>
 
     <a href="login.php">logar</a>
-<br>
+    <br>
 
-<main>
-<?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-            <?php  
+    <main>
+        <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+            <?php
             $usuario = new Usuario($db);
             $infoUsu = $usuario->lerPorId($row['autor']);
-               echo"<div id='noticia'>";
-             
-               
-               echo "<div id='foto'><img src='".$row['foto']."' alt='imagem da noticia'></div>"; 
-               
-               echo "<div id='info'><h1>".$row['titulo']."</h1>";
-               echo "<p>".$row['noticia']."</p><br><br>"; 
-               echo "por: ".$infoUsu['nome']."<br><br>"; 
-               echo $row['data'];
-                  
-                 
-               
-                    
-    
-             echo "</div></div>";?>
+            echo "<div id='noticia'>";
+
+
+            echo "<div id='foto'><img src='" . $row['foto'] . "' alt='imagem da noticia'></div>";
+
+            echo "<div id='info'><h1>" . $row['titulo'] . "</h1>";
+            echo "<p>" . $row['noticia'] . "</p><br><br>";
+            echo "por: " . $infoUsu['nome'] . "<br><br>";
+            echo $row['data'];
+
+
+
+
+
+            echo "</div></div>"; ?>
         <?php endwhile; ?>
 
     </main>
-</body> </html>
+</body>
+
+</html>
+
+
+
+
+
 
 <style>
-
-    body{
-        background-color: #a395c5;
-    }
-
-    main div{
-background-color: white;
+    main div {
+        background-color: white;
 
     }
-    main{
+
+    main {
+
         display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
-    #noticia h1{
+
+    #noticia h1 {
         color: red;
     }
-    #noticia{
+
+    #noticia {
+        border: 2px solid black;
+        box-shadow: 0 0 10px black;
         width: 500px;
         margin-bottom: 20px;
         border-radius: 30px;
         padding: 20px;
-display: flex;
-flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
     }
-    
-    img{
-height: 90%;
-width: 90%;
+
+    img {
+        height: 90%;
+        width: 90%;
     }
-</style>
+    a{
+        background-color: black;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 30px;
+    }
+    </style>

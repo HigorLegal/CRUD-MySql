@@ -22,47 +22,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Adicionar Usuário</title>
+    <link rel="stylesheet" href="root.css">
 </head>
+
 <body>
+    <header>
+        <h1>cadastrar Usuário</h1>
+    </header>
+    <a href="portal.php">voltar</a>
     <main>
-    <h1>cadastrar Usuário</h1>
-    
-    <form method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" required>
-        <br><br>
-        <label>Sexo:</label>
-        <label for="masculino">
-            <input type="radio" id="masculino" name="sexo" value="M" required> Masculino
-        </label>
-        <label for="feminino">
-            <input type="radio" id="feminino" name="sexo" value="F" required> Feminino
-        </label>
-        <br><br>
-        <label for="fone">Fone:</label>
-        <input type="text" name="fone" required>
-        <br><br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-        <br><br>
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" required>
-        <br><br>
-        <input type="submit" value="Adicionar">
-    </form>
+        <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE1celiaX-o-k4pxKqTtoCIvGYVil4ilQXqoqQ7SihOtZbHpYy34Jlmgrw7bJvww9hZE8&usqp=CAU" alt="">
+        <form method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" required>
+
+            <label>Sexo:</label>
+            <div>
+                <label for="masculino">
+                    <input type="radio" id="masculino" name="sexo" value="M" required> Masculino
+                </label>
+                <label for="feminino">
+                    <input type="radio" id="feminino" name="sexo" value="F" required> Feminino
+                </label>
+            </div>
+
+            <label for="fone">Fone:</label>
+            <input type="text" name="fone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" required>
+
+            <input type="submit" value="Adicionar">
+        </form>
     </main>
 </body>
 
 </html>
 <style>
-    
-    *{
-        margin:0;
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    body {
-        background-color: #a395c5;
+
+    main img {
+        margin-bottom: 20px;
+        border: 5px solid black;
+        border-radius: 100%;
+        width: 150px;
+        height: 150px;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        gap: 5px;
+    }
+
+    form input {
+        padding: 5px;
     }
 </style>

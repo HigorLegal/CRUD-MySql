@@ -81,7 +81,7 @@ class Usuario
         $stmt->execute();
 
         //esta retornando o resultado encontrado 
-        return $stmt;
+        return  $stmt;
     }
 
 
