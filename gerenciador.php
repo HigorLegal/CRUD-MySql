@@ -48,7 +48,6 @@ if (isset($_GET['deletar'])) {
             <th>titulo</th>
             <th>data</th>
             <th>autor</th>
-            <th>data</th>
             <th>noticia</th>
             <th>foto</th>
             <th>ações</th>
@@ -59,7 +58,7 @@ if (isset($_GET['deletar'])) {
                 <td><?php echo $row['titulo']; ?></td>
                 <td><?php echo ($row['data']);?></td>
                 <td><?php echo $row['autor']; ?></td>
-                <td><?php echo $row['data']; ?></td>
+                
                 <td><?php echo $row['noticia']; ?></td>
                 <td><?php echo $row['foto']; ?></td>
                 <td>

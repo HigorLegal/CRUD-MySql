@@ -66,6 +66,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </html>
 <style>
+  a{
+    background-color: black;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 30px;
+        
+}
+form input {
+        padding: 10px;
+    }
     main {
         display: flex;
         flex-direction: column;

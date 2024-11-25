@@ -52,7 +52,7 @@ function saudacao()
             echo "<div id='noticia'>";
 
 
-            echo "<div id='foto'><img src='" . $row['foto'] . "' alt='imagem da noticia'></div>";
+            echo "<div id='foto'><img src='".$row['foto']."' alt='imagem da noticia'></div>";
 
             echo "<div id='info'><h1>" . $row['titulo'] . "</h1>";
             echo "<p>" . $row['noticia'] . "</p><br><br>";

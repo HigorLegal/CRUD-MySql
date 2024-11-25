@@ -15,8 +15,7 @@ class noticia{
  {
      //vai armazena o pedido que vai executar no sql
      $query = "INSERT INTO " . $this->table_name . " (titulo,autor,data,noticia,foto) VALUES (?, ?, ?, ?, ?)";
-  var_dump($query);
-  exit;
+ 
      //esta preparando a query para ser executada
      $stmt = $this->conn->prepare($query);
 

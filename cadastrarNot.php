@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $titulo = $_POST['titulo'];
     $autor = $_POST['autor'];
-    $noticia = $_POST['conteudo'];
-    $dataPublicacao = $_POST['data_publicacao'];
+    $noticia = $_POST['noticia'];
+    $dataPublicacao = $_POST['data'];
     $imagem = $_FILES['imagem'];
 
     // Validações do upload da imagem
@@ -58,15 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Conversão da data para o formato americano
     $noticiaObj = new noticia($db);
-    $dataConvertida = $dataPublicacao;
-    //$noticiaObj->converterData($dataPublicacao);
-
-    if (!$dataConvertida) {
-        die("Data inválida. Use o formato dd/mm/aaaa.");
-    }
-
+    
     // Salvar a notícia no banco de dados
-    $noticiaObj->registrar($titulo, $autor, $noticia, $nomeImagem, $dataConvertida);
+    $noticiaObj->registrar($titulo,$autor,$dataPublicacao,$noticia,$destino);
 
     echo "Notícia salva com sucesso!";
     echo '<br><a href="index.php">Voltar</a>';
@@ -86,11 +80,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <header>
         <h1>Publicar Noticia</h1>
         </header>
+        <a href="gerenciador.php">gerenciador de noticias</a>
         <form  method="POST" enctype="multipart/form-data">
             <label for="titulo">titulo:</label>
             <input type="text" name="titulo" required>
 
-            <select name="autor" require>
+            <select  name="autor" require>
                 <option value="">escolha o autor</option>
                 <?php foreach ($usuarios as $usuario): ?>
                     <option value="<?php echo $usuario['id']; ?>">
@@ -116,12 +111,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </html>
 <style>
+    select {
+        margin-top:5px;
+padding:5px;
+font-size:20px;
+}
     form label {
         font-size: 20px;
     }
 
     form input {
-        padding: 5px;
+        padding: 10px;
     }
 
     #button {
@@ -138,4 +138,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         flex-direction: column;
         gap: 5px;
     }
+     a{
+    background-color: black;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 30px;
+        
+}
 </style>
