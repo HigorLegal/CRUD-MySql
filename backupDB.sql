@@ -1,4 +1,6 @@
-Create database bdcrud;
+Create database dbcrud;
+
+use database dbcrud;
 
 CREATE TABLE usuarios (
 id INT AUTO_INCREMENT PRIMARY KEY,
