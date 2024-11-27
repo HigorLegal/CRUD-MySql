@@ -13,6 +13,7 @@ $noticia = new noticia($db);
 $dados = $noticia->ler();
 
 
+
 // Função para determinar a saudação
 function saudacao()
 {
@@ -48,7 +49,7 @@ function saudacao()
         <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
             <?php
             $usuario = new Usuario($db);
-            $infoUsu = $usuario->lerPorId($row['autor']);
+            $infoAutor = $usuario->lerPorId($row['autor']);
             echo "<div id='noticia'>";
 
 
@@ -56,11 +57,10 @@ function saudacao()
 
             echo "<div id='info'><h1>" . $row['titulo'] . "</h1>";
             echo "<p>" . $row['noticia'] . "</p><br><br>";
-            echo "por: " . $infoUsu['nome'] . "<br><br>";
+            echo "por: " . $infoAutor['nome'] . "<br><br>";
             echo $row['data'];
 
-
-
+          
 
 
             echo "</div></div>"; ?>
@@ -77,6 +77,7 @@ function saudacao()
 
 
 <style>
+    
     main div {
         background-color: white;
 

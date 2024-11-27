@@ -49,9 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>AUTENTICAÇÃO</h1>
     </header>
 
-
-    <main>
-
+    
+   
+        <a href="index.php">voltar</a>
+ <main>
         <div class="box">
 
             <img src="https://static.vecteezy.com/ti/vetor-gratis/t1/7033146-perfil-icone-login-head-icon-vetor.jpg" alt="">
@@ -65,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <input id="button" type="submit" name="login" value="Login">
             </form>
-            <p style="margin-top: 10px;">Não tem uma conta? <a href="./registrar.php">Registre-se aqui</a></p>
+            <p style="margin-top: 20px;">Não tem uma conta? <a href="./registrar.php">Registre-se aqui</a></p>
             <div class="mensagem">
                 <?php if (isset($mensagem_erro)) echo '<p>' . $mensagem_erro . '</p>'; ?>
             </div>
@@ -82,14 +83,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
  
-    
+     a{
+    background-color: black;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 30px;
+    }
 
     #button {
         color: white;
         background-color: black;
         border-radius: 30px;
         padding: 10px;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 
     table {

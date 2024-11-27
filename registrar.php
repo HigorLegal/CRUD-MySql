@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="senha">Senha:</label>
             <input type="password" name="senha" required>
 
-            <input type="submit" value="Adicionar">
+            <input id="button" type="submit" value="Adicionar">
         </form>
     </main>
 </body>
@@ -97,6 +97,13 @@ form input {
         align-items: center;
         display: flex;
         gap: 5px;
+    }
+    #button {
+        background-color: black;
+        color: white;
+        border-radius: 30px;
+        padding: 10px;
+        font-size: 20px;
     }
 
     form input {

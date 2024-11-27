@@ -48,9 +48,10 @@ function saudacao() {
     <header><h1>gerenciamento de usuarios</h1></header>
     <h1 id="msg"> <?php echo saudacao() . ", <b>" . $nome_usuario."</b>"; ?>!</h1>
     <div id="links">
-    <a href="registrar.php">Adicionar Usuário</a>
-    <a href="gerenciador.php">gerenciar noticias</a>
     <a href="logout.php">Logout</a>
+    <a href="gerenciador.php">gerenciar noticias</a>
+    <a href="registrar.php">Adicionar Usuário</a>
+   
     </div>
     <br>
 <main>
@@ -101,7 +102,16 @@ justify-content: center
         color: white;
     border-color: black;
     }
+    #links {
+   
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+}
  #links a{
+text-align: center;
+    width: 100px;
     background-color: black;
         color: white;
         text-decoration: none;

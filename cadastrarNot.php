@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Gerar nome único para o arquivo
         $nomeImagem = uniqid() . "." . $extensao;
-        $destino = "uploads/" . $nomeImagem;
+        $destino = "./uploads/" . $nomeImagem;
 
         // Mover o arquivo para o diretório
         if (!move_uploaded_file($imagem['tmp_name'], $destino)) {
@@ -62,8 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Salvar a notícia no banco de dados
     $noticiaObj->registrar($titulo,$autor,$dataPublicacao,$noticia,$destino);
 
-    echo "Notícia salva com sucesso!";
-    echo '<br><a href="index.php">Voltar</a>';
+$msg = "noticia publicada com sucesso";
 }
 ?>
 <!DOCTYPE html>

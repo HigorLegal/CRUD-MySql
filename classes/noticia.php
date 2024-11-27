@@ -29,7 +29,7 @@ class noticia{
  public function ler()
  {
      //vai armazena o pedido que vai executar no sql
-     $query = "SELECT * FROM " . $this->table_name;
+     $query = "SELECT * FROM " . $this->table_name ." ORDER BY data DESC";
 
      //esta preparando a query para ser executada
      $stmt = $this->conn->prepare($query);
@@ -37,6 +37,7 @@ class noticia{
      //esta executando a query e guardando 
      $stmt->execute();
 
+    
      //esta retornando o resultado encontrado 
      return $stmt;
  }

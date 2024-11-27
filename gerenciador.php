@@ -73,35 +73,48 @@ if (isset($_GET['deletar'])) {
 </html>
 
 <style>
-    main{
-        display: flex;
+    
         
-justify-content: center
-    }
-    table{
-        margin-top: 50px;
-        background-color: black;
-        color: white;
+        
+        main{
+            display: flex;
+            
+            justify-content: center
+        }
+        table{
+            margin-top: 50px;
+            background-color: black;
+            color: white;
     border-color: black;
-    }
- #links a{
-    background-color: black;
-        color: white;
-        text-decoration: none;
-        font-size: 20px;
-        padding: 10px;
-        border-radius: 30px;
-        
 }
- table img{
+#links {
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#links a{
+    text-align: center;
+    width: 100px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    
+}
+table img{
     margin-left: 10px;
-        border: 3px solid white;
-        border-radius: 100%;
-        width: 30px;
-        height  : 30px;
-        
+    border: 3px solid white;
+    border-radius: 100%;
+    width: 30px;
+    height  : 30px;
+    
+    
+}
 
- }
 
 
 </style>
