@@ -22,7 +22,6 @@ class Database
                 $this->username,
                 $this->password
             );
-            
         } catch (PDOException $exception) {
             echo "Erro de conexão: " . $exception->getMessage();
         }

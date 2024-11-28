@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //a variavel global session ela cria um acesso (basicamente se nao tiver esse aceso ele nao pode entrar em gerenciadorUsu.php 
             //ex:nao da para ir de cadastro para gerenciadorUsu porque nao tem essa credencial)
             $_SESSION['usuario_id'] = $dados_usuario['id'];
-          
+
             //vai pra gerenciadorUsu.php
             header('Location:gerenciadorUsu.php');
 
@@ -35,12 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>A U T E N T I C A Ç Ã O</title>
-<link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="root.css">
 </head>
 
 
@@ -49,10 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>AUTENTICAÇÃO</h1>
     </header>
 
-    
-   
-        <a href="index.php">voltar</a>
- <main>
+
+
+    <a href="index.php">voltar</a>
+    <main>
         <div class="box">
 
             <img src="https://static.vecteezy.com/ti/vetor-gratis/t1/7033146-perfil-icone-login-head-icon-vetor.jpg" alt="">
@@ -65,12 +66,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="password" name="senha" required>
 
                 <input id="button" type="submit" name="login" value="Login">
-            </form> 
+            </form>
             <div id="mensagem">
                 <?php if (isset($mensagem_erro)) echo '<p>' . $mensagem_erro . '</p>'; ?>
             </div>
             <p style="margin-top: 20px;">Não tem uma conta? <a href="./registrar.php">Registre-se aqui</a></p>
-           
+
 
     </main>
 
@@ -79,116 +80,118 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </html>
 <style>
-    #mensagem p{
+    #mensagem p {
         margin-bottom: 10px;
         margin-top: 10px;
     }
+
     @media screen and (min-width: 768px) {
-  
 
 
-    input {
-        padding: 10px;
+
+        input {
+            padding: 10px;
+        }
+
+
+        a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 30px;
+        }
+
+        #button {
+            color: white;
+            background-color: black;
+            border-radius: 30px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        table {
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+
+        form {
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        main img {
+
+            margin-bottom: 20px;
+            border-radius: 100%;
+            height: 200px;
+            width: 200px;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
- 
-     a{
-    background-color: black;
-        color: white;
-        text-decoration: none;
-        font-size: 20px;
-        padding: 10px;
-        border-radius: 30px;
-    }
+    @media screen and (max-width: 768px) {
+        input {
+            padding: 10px;
+            border: 2px solid black;
+        }
 
-    #button {
-        color: white;
-        background-color: black;
-        border-radius: 30px;
-        padding: 10px;
-        margin-top: 20px;
-    }
 
-    table {
-        background-color: black;
-        color: white;
-        padding: 10px;
-    }
+        a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 30px;
+        }
 
-    form {
+        #button {
+            color: white;
+            background-color: black;
+            border-radius: 30px;
+            padding: 10px;
+            margin-top: 20px;
+        }
 
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
+        table {
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
 
-    main img {
+        form {
 
-        margin-bottom: 20px;
-        border-radius: 100%;
-        height: 200px;
-        width: 200px;
-    }
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
 
-    .box {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-@media screen and (max-width: 768px) {
-    input {
-        padding: 10px;
-        border: 2px solid black;
-    }
-    
-    
-     a{
-    background-color: black;
-        color: white;
-        text-decoration: none;
-        font-size: 20px;
-        padding: 10px;
-        border-radius: 30px;
-    }
-    
-    #button {
-        color: white;
-        background-color: black;
-        border-radius: 30px;
-        padding: 10px;
-        margin-top: 20px;
-    }
-    
-    table {
-        background-color: black;
-        color: white;
-        padding: 10px;
-    }
-    
-    form {
-    
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    
-    main img {
-    
-        margin-bottom: 20px;
-        border-radius: 100%;
-        height: 200px;
-        width: 200px;
-    }
-    
-    .box {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-  
+        main img {
 
-}
+            margin-bottom: 20px;
+            border-radius: 100%;
+            height: 200px;
+            width: 200px;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+    }
 </style>

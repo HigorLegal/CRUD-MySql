@@ -17,4 +17,3 @@ if (isset($_GET['id'])) {
     header('Location: gerenciadorNot.php');
     exit();
 }
-?>

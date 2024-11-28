@@ -147,10 +147,12 @@ if (isset($_GET['id'])) {
             border-radius: 30px;
 
         }
-label{
-    
-    font-size: 20px;
-}
+
+        label {
+
+            font-size: 20px;
+        }
+
         form input {
             padding: 10px;
             border: 2px solid black;

@@ -123,7 +123,7 @@ class Usuario
     }
 
 
-    
+
 
     public function deletar($id)
     {
