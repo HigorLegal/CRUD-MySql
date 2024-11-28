@@ -63,11 +63,11 @@ As tecnologias e ferramentas utilizadas neste projeto são:
 ├── login.PHP # Página de login.
 ├── logout.PHP # efetuada apos sair que leva para a pagina principal.
 ├── backupDB.sql # sao os comandos que usei no PhpMyAdmin para criar o banco de dados.
-├── gerenciadorUsu.PHP # pagina de gerenciamento dos usuarios com as opçoes de editar alterar e adicionar umo novo usuario.
+├── gerenciadorUsu.PHP # pagina de gerenciamento dos usuarios com as opçoes de editar alterar e adicionar.
 ├── cadastroUsu.PHP # Página de cadastro de novos usuarios.
 ├── editarUsu.PHP # Página de alteraçoes dos usuarios criados.
 ├── index.PHP # Página principal com as noticias.
-├── gerenciadorNot.PHP # pagina de gerenciamento das noticias com as opçoes de editar alterar e adicionar uma nova noticia.
+├── gerenciadorNot.PHP # pagina de gerenciamento das noticias com as opçoes de editar alterar e adicionar.
 ├── CadastroNot.PHP # Página de cadastro de novas noticias.
 ├── editarNot.PHP # Página de alteraçao de noticias.
 └── README.md # Documentação do projeto.
