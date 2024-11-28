@@ -50,17 +50,23 @@ As tecnologias e ferramentas utilizadas neste projeto são:
 ```plaintext
 /CRUD-MySql
 │
-├──────config.php #
-├── login.PHP # Página de login.
+├──────classes #folder para guardar as classes usadas no projeto
+├── usuario.PHP # classe de usuario
+├── noticia.PHP # classe de noticia
 
-├──────config.php #
+├──────config # folder de configuraçao
+├── config.PHP # comando de configuração do banco de dados
+
+├──────uploads # folder de imagens das noticias registradas
+
 ├── login.PHP # Página de login.
 ├── logout.PHP # efetuada apos sair da pagina principal.
 ├── cadastro.PHP # Página de cadastro de novos usuarios.
-├── alterar.PHP # Página de alteraçoes dos usuarios criados.
-├── index.PHP # Página principal com a agenda.
-├── agenCadastro.PHP # Página de cadastro de amigos para a agenda.
-├── agenAlt.PHP # Página de alteraçao de amigos da agenda.
+├── editar.PHP # Página de alteraçoes dos usuarios criados.
+├── p.PHP # Página de alteraçoes dos usuarios criados.
+├── index.PHP # Página principal com as noticias.
+├── CadastroNot.PHP # Página de cadastro de amigos para a agenda.
+├── editarNot.PHP # Página de alteraçao de amigos da agenda.
 ├── usuario.TXT # arquivo que quarda os usuarios.
 ├── agenda.TXT #arquivo que guarda os amigos da agenda.
 ├── funcoes.PHP # arquivo que fica as funçoes usadas para mexer nos arquivos do usuarios e da agenda.
