@@ -39,7 +39,7 @@ altera-los.Tambem há um sistema de gerenciamento das  noticias podendo criar no
 As tecnologias e ferramentas utilizadas neste projeto são:
 
 - **HTML5**: Estruturação semântica e organizada.
-- **CSS3**: Estilos visuais.
+- **CSS3**: Estilos visuais e responsividade para dispositivos moveis.
 - **PHP**: Validação de formulários.
 - **phpmyadmin**: criação de banco de dados.
 
@@ -53,23 +53,23 @@ As tecnologias e ferramentas utilizadas neste projeto são:
 ├──────classes #folder para guardar as classes usadas no projeto
 ├── usuario.PHP # classe de usuario
 ├── noticia.PHP # classe de noticia
+├── database.PHP # classe do banco de dados que colocara as informaçoes do banco de dados para efetuar a conexão
 
 ├──────config # folder de configuraçao
-├── config.PHP # comando de configuração do banco de dados
+├── config.PHP # comando para conectar com o banco de dados para poder usa-lo.
 
 ├──────uploads # folder de imagens das noticias registradas
 
 ├── login.PHP # Página de login.
-├── logout.PHP # efetuada apos sair da pagina principal.
-├── cadastro.PHP # Página de cadastro de novos usuarios.
-├── editar.PHP # Página de alteraçoes dos usuarios criados.
-├── p.PHP # Página de alteraçoes dos usuarios criados.
+├── logout.PHP # efetuada apos sair que leva para a pagina principal.
+├── backupDB.sql # sao os comandos que usei no PhpMyAdmin para criar o banco de dados.
+├── gerenciadorUsu.PHP # pagina de gerenciamento dos usuarios com as opçoes de editar alterar e adicionar umo novo usuario.
+├── cadastroUsu.PHP # Página de cadastro de novos usuarios.
+├── editarUsu.PHP # Página de alteraçoes dos usuarios criados.
 ├── index.PHP # Página principal com as noticias.
-├── CadastroNot.PHP # Página de cadastro de amigos para a agenda.
-├── editarNot.PHP # Página de alteraçao de amigos da agenda.
-├── usuario.TXT # arquivo que quarda os usuarios.
-├── agenda.TXT #arquivo que guarda os amigos da agenda.
-├── funcoes.PHP # arquivo que fica as funçoes usadas para mexer nos arquivos do usuarios e da agenda.
+├── gerenciadorNot.PHP # pagina de gerenciamento das noticias com as opçoes de editar alterar e adicionar uma nova noticia.
+├── CadastroNot.PHP # Página de cadastro de novas noticias.
+├── editarNot.PHP # Página de alteraçao de noticias.
 └── README.md # Documentação do projeto.
 
 ## Como Executar o Projeto
@@ -77,11 +77,10 @@ As tecnologias e ferramentas utilizadas neste projeto são:
 git clone https://github.com/seu_usuario/CRUD-PHP
 2. coloque a pasta clonada no htdocs do **XAMPP**
 3. abra o **XAMPP** e inicie o servidor apache 
-4. Abra o arquivo em seu navegador usando o link :
+4. abra o PhpMyAdmin no link "localhost/phpmyadmin"
+e crie o banco de dados do arquivo "backupDB.sql".
+5. Abra o arquivo em seu navegador usando o link :
 localhost/CRUD-PHP/login.php 
-
-Dica: Você pode usar uma extensão de servidor local no VS Code, como
-Live Server, para visualizar o projeto com recarregamento automático.
 
 ## Desenvolvedor
  Nome do Aluno: Higor da Silva Gomes de Oliveira 
