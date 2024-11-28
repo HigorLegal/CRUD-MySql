@@ -19,7 +19,12 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//
+$diretorio="./uploads";
+
+if (!is_dir($diretorio)) {
+    // A pasta não existe, então cria ela
+    mkdir($diretorio, 0777, true); 
+}
 
     $titulo = $_POST['titulo'];
     $autor = $_POST['autor'];
@@ -58,7 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Conversão da data para o formato americano
     $noticiaObj = new noticia($db);
-    
+
+    $diretorio = 'caminho/para/a/pasta';
+
     // Salvar a notícia no banco de dados
     $noticiaObj->registrar($titulo,$autor,$dataPublicacao,$noticia,$destino);
 
@@ -71,6 +78,7 @@ $msg = "noticia publicada com sucesso";
 <head>
     <meta charset="UTF-8">
     <title>Adicionar noticia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="root.css">
 </head>
 
@@ -79,7 +87,7 @@ $msg = "noticia publicada com sucesso";
         <header>
         <h1>Publicar Noticia</h1>
         </header>
-        <a href="gerenciador.php">gerenciador de noticias</a>
+        <a href="gerenciadorNot.php">gerenciadorNot de noticias</a>
         <form  method="POST" enctype="multipart/form-data">
             <label for="titulo">titulo:</label>
             <input type="text" name="titulo" required>
@@ -97,7 +105,7 @@ $msg = "noticia publicada com sucesso";
             <input type="date" name="data" required>
 
             <label for="noticia">informaçoes da noticia:</label>
-            <input type="text" name="noticia" required>
+            <textarea id="noticia" name="noticia" rows="4" cols="50"></textarea>
 
             <label for="imagem">imagem da noticia:</label>
             <input type="file" name="imagem" id="imagem" accept="jpg,png" required>
@@ -110,6 +118,7 @@ $msg = "noticia publicada com sucesso";
 
 </html>
 <style>
+      @media screen and (min-width: 768px) {
     select {
         margin-top:5px;
 padding:5px;
@@ -145,5 +154,50 @@ font-size:20px;
         padding: 10px;
         border-radius: 30px;
         
+}
+}
+@media screen and (max-width: 768px) {
+    select { border:2px solid black;
+        margin-top:5px;
+    padding:5px;
+    font-size:20px;
+    }
+    form label {
+        font-size: 20px;
+    }
+    
+    form input {
+        padding: 10px;
+        border:2px solid black;
+    }
+    
+    #button {
+        background-color: black;
+        color: white;
+        border-radius: 30px;
+        padding: 10px;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    form {
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        
+    }
+     a{
+    background-color: black;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        
+        border-radius: 30px;
+        
+    }
+
 }
 </style>

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fone = $_POST['fone'];
     $email = $_POST['email'];
     $usuario->atualizar($id, $nome, $sexo, $fone, $email);
-    header('Location: portal.php');
+    header('Location: gerenciadorUsu.php');
     exit();
 }
 if (isset($_GET['id'])) {
@@ -26,16 +26,19 @@ if (isset($_GET['id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Editar Usuário</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="root.css">
 </head>
+
 <body>
     <header>
-    <h1>Editar Usuário</h1>
+        <h1>Editar Usuário</h1>
     </header>
-    <a href="portal.php">sair</a>
+    <a href="gerenciadorUsu.php">sair</a>
     <main>
 
         <form method="POST">
@@ -61,51 +64,114 @@ if (isset($_GET['id'])) {
         </form>
     </main>
 </body>
+
 </html>
 <style>
-  #button {
-        background-color: black;
-        color: white;
-        border-radius: 30px;
-        padding: 10px;
-        font-size: 20px;
+    @media screen and (min-width: 768px) {
+        #button {
+            background-color: black;
+            color: white;
+            border-radius: 30px;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        form {
+            flex-direction: column;
+            align-items: center;
+            display: flex;
+
+        }
+
+        form input {
+            padding: 5px;
+        }
+
+        a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 30px;
+
+        }
+
+        form input {
+            padding: 10px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 30px;
+
+        }
     }
 
-    form {
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-        
-    }
+    @media screen and (max-width: 768px) {
+        #button {
+            background-color: black;
+            color: white;
+            border-radius: 30px;
+            padding: 10px;
+            font-size: 20px;
+        }
 
-    form input {
-        padding: 5px;
-    }
-    a{
-    background-color: black;
-        color: white;
-        text-decoration: none;
-        font-size: 20px;
-        padding: 10px;
-        border-radius: 30px;
-        
+        form {
+            flex-direction: column;
+            align-items: center;
+            display: flex;
+
+        }
+
+        form input {
+            padding: 5px;
+        }
+
+        a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 30px;
+
+        }
+label{
+    
+    font-size: 20px;
 }
-form input {
-        padding: 10px;
-    }
-    main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    } 
-     a{
-    background-color: black;
-        color: white;
-        text-decoration: none;
-        font-size: 20px;
-        padding: 10px;
-        border-radius: 30px;
-        
-}
+        form input {
+            padding: 10px;
+            border: 2px solid black;
+            font-size: 20px;
+        }
 
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            padding: 10px;
+            border-radius: 30px;
+
+        }
+
+    }
 </style>

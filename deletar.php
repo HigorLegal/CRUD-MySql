@@ -12,7 +12,7 @@ $usuario = new Usuario($db);
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $usuario->deletar($id);
-    header('Location: portal.php');
+    header('Location: gerenciadorUsu.php');
     exit();
 }
 ?>

@@ -14,7 +14,7 @@ $noticia = new noticia($db);
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $noticia->deletar($id);
-    header('Location: gerenciador.php');
+    header('Location: gerenciadorNot.php');
     exit();
 }
 ?>

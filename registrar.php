@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Adicionar Usuário</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="root.css">
 </head>
 
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <h1>cadastrar Usuário</h1>
     </header>
-    <a href="portal.php">voltar</a>
+    <a href="gerenciadorUsu.php">voltar</a>
     <main>
         <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE1celiaX-o-k4pxKqTtoCIvGYVil4ilQXqoqQ7SihOtZbHpYy34Jlmgrw7bJvww9hZE8&usqp=CAU" alt="">
         <form method="POST">
@@ -66,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </html>
 <style>
+      @media screen and (min-width: 768px) {
   a{
     background-color: black;
         color: white;
@@ -108,5 +110,57 @@ form input {
 
     form input {
         padding: 5px;
+    }
+}
+@media screen and (max-width: 768px) {
+        a{
+          background-color: black;
+              color: white;
+              text-decoration: none;
+              font-size: 20px;
+              padding: 10px;
+              border-radius: 30px;
+              
+        }
+        form input {
+            font-size: 20px;
+            border: 2px solid black;
+            padding: 10px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        main img {
+              margin-bottom: 20px;
+              border: 5px solid black;
+              border-radius: 100%;
+              width: 150px;
+              height: 150px;
+            }
+            
+          form {
+              flex-direction: column;
+              align-items: center;
+              display: flex;
+              gap: 5px;
+            }
+            #button {
+                background-color: black;
+              color: white;
+              border-radius: 30px;
+              padding: 10px;
+              font-size: 20px;
+            }
+        label{
+            font-size: 20px;
+        }
+            form input {
+                font-size: 20px;
+                padding: 5px;
+            }
+
     }
 </style>

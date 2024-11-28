@@ -1,6 +1,6 @@
 Create database dbcrud;
 
-use database dbcrud;
+use dbcrud;
 
 CREATE TABLE usuarios (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,6 +17,6 @@ data date not null,
 autor int,
 noticia text NOT null,
 foto VARCHAR(255) NOT NULL,
- FOREIGN KEY (`autor`)   REFERENCES `usuarios`(`id`)
+ FOREIGN KEY (`autor`)   REFERENCES`usuarios`(`id`) ON DELETE CASCADE
 );
 

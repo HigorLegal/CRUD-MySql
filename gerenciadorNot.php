@@ -10,6 +10,7 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 $noticia = new noticia($db);
+$autor = new Usuario($db);
 $dados = $noticia->ler();
 
 // Obter dados do usuário logado
@@ -39,28 +40,27 @@ if (isset($_GET['deletar'])) {
     </header>
 <div id="links">
     <a href="logout.php">sair</a>
-    <a href="portal.php">gerenciador de usuarios</a>
+    <a href="gerenciadorUsu.php">gerenciador de usuarios</a>
     <a href="cadastrarNot.php">criar noticia</a>
     </div><main>
     <table border="1">
         <tr>
-            <th>ID</th>
+            
             <th>titulo</th>
             <th>data</th>
             <th>autor</th>
-            <th>noticia</th>
+           
             <th>foto</th>
             <th>ações</th>
         </tr>
         <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
             <tr>
-                <td><?php echo $row['id']; ?></td>
+                
                 <td><?php echo $row['titulo']; ?></td>
                 <td><?php echo ($row['data']);?></td>
-                <td><?php echo $row['autor']; ?></td>
-                
-                <td><?php echo $row['noticia']; ?></td>
-                <td><?php echo $row['foto']; ?></td>
+                <td><?php  $criador = $autor->lerPorId($row['autor']); echo $criador["nome"] ?></td>
+               
+                <td id="foto"><img src="<?php echo $row['foto']; ?>" alt=""></td>
                 <td>
                     <a href="deletarNot.php?id=<?php echo $row['id']; ?>"><img id="imgalt"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcx1AupvWZqkA2_GijfJIDCsc1xCNXVNOkDQ&s" alt=""></a>
                     <a href="editarNot.php?id=<?php echo $row['id']; ?>"><img id="imgex" src="https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_640.png" alt=""></a>
@@ -73,19 +73,20 @@ if (isset($_GET['deletar'])) {
 </html>
 
 <style>
-    
-        
-        
+    @media screen and (min-width: 768px) {
+                
         main{
             display: flex;
             
             justify-content: center
         }
         table{
+            text-align: center;
+          
             margin-top: 50px;
             background-color: black;
             color: white;
-    border-color: black;
+    border-color: #ffffff38;
 }
 #links {
    
@@ -105,7 +106,11 @@ if (isset($_GET['deletar'])) {
     border-radius: 30px;
     
 }
-table img{
+#foto img{
+width: 110px;
+height: 90px;
+    }
+a img{
     margin-left: 10px;
     border: 3px solid white;
     border-radius: 100%;
@@ -114,7 +119,54 @@ table img{
     
     
 }
+}
+@media screen and (max-width: 768px) {
+    main{
+        display: flex;
+        
+        justify-content: center
+    }
+    table{
+     
+    text-align: center;
+        font-size: 13px;
+        margin-top: 50px;
+            background-color: black;
+            color: white;
+    border-color: #ffffff38;
+    }
+    #links {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    }
+    #links a{
+    text-align: center;
+    width: 100px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    
+    }
+    #foto img{
+width: 50px;
+height: 40px;
+    }
+    a img{
+    margin-left: 10px;
+    border: 3px solid white;
+    border-radius: 100%;
+    width: 30px;
+    height  : 30px;
+    
+    
+    }
 
-
+}
 
 </style>

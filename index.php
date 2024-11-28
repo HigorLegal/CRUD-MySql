@@ -33,18 +33,22 @@ function saudacao()
 <head>
     <meta charset="UTF-8">
     <title>portal de noticias</title>
-    <link rel="stylesheet" href="root.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
 </head>
 
 <body>
 <header>
-<h1>Noticias</h1>
-
+<h1>Portal de Noticias</h1>
+<a href="login.php">logar</a>
 </header>
 
-    <a href="login.php">logar</a>
-    <br>
+<h1 style="text-align: center;">Bem vindo ao portal de noticias</h1>
+    
 
+    <div id="linha">
+
+    </div>
     <main>
         <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
             <?php
@@ -77,6 +81,84 @@ function saudacao()
 
 
 <style>
+    #linha{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    border: 2px solid black;
+
+    }
+    * {
+    margin: 0;
+}
+
+ body{
+    background-color: white;
+}
+header {
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+box-shadow: 0 0 200px black;
+}
+  @media screen and (max-width: 768px) {
+       
+    
+    main div {
+        background-color: white;
+    }
+
+    main {
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+   
+    }
+
+    #noticia p {
+font-size: 15px;
+    }
+    #noticia h1 {
+        color: red;
+        font-size: 20px;
+    }
+
+    #noticia {
+        border: 2px solid black;
+        box-shadow: 0 0 10px black;
+        width: 300px;
+        margin-bottom: 20px;
+        border-radius: 30px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    img {
+        height: 10%;
+        width: 100%;
+        border-radius: 20px;
+    }
+    a{
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 30px;
+        margin-bottom: 20px;
+    }
+
+}   
+  @media screen and (min-width: 768px) {
+        
     
     main div {
         background-color: white;
@@ -87,8 +169,10 @@ function saudacao()
 
         display: flex;
         justify-content: center;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        gap: 50px;
+        flex-wrap: wrap
+       
     }
 
     #noticia h1 {
@@ -98,26 +182,29 @@ function saudacao()
     #noticia {
         border: 2px solid black;
         box-shadow: 0 0 10px black;
-        width: 500px;
+        width: 300px;
         margin-bottom: 20px;
         border-radius: 30px;
         padding: 20px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: flex-start;
         align-items: center;
     }
 
     img {
-        height: 90%;
-        width: 90%;
+        height: 100%;
+        width: 100%;
     }
     a{
-        background-color: black;
-        color: white;
+        background-color: white;
+        color: black;
         text-decoration: none;
         font-size: 20px;
         padding: 10px;
         border-radius: 30px;
     }
+}
+
+
     </style>
