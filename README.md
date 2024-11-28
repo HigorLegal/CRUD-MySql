@@ -53,7 +53,7 @@ As tecnologias e ferramentas utilizadas neste projeto são:
 ├──────classes #folder para guardar as classes usadas no projeto
 ├── usuario.PHP # classe de usuario
 ├── noticia.PHP # classe de noticia
-├── database.PHP # classe do banco de dados que colocara as informaçoes do banco de dados para efetuar a conexão
+├── database.PHP # classe do banco de dados que colocara as informaçoes do BD para efetuar a conexão
 
 ├──────config # folder de configuraçao
 ├── config.PHP # comando para conectar com o banco de dados para poder usa-lo.
