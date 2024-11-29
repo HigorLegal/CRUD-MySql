@@ -52,7 +52,7 @@ function saudacao()
 
 <head>
     <meta charset="UTF-8">
-    <title>gerenciadorUsu</title>
+    <title>gerenciador de Usuarios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
