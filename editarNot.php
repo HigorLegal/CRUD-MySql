@@ -19,20 +19,59 @@ if (isset($_GET['id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $diretorio = "./uploads";
+
+    if (!is_dir($diretorio)) {
+        // A pasta não existe, então cria ela
+        mkdir($diretorio, 0777, true);
+    }
+
     $id = $_POST['id'];
     $titulo = $_POST['titulo'];
     $data = $_POST['data'];
     $noticia = $_POST['noticia'];
     $autor = $_POST['autor'];
-
-    if (isset($_POST['foto'])) {
+    
+    $nomeImagem = "";
+    if (!isset($_FILES['foto'])) {
+        
         $foto =  $row['foto'];
+    
     } else {
-        $foto = "./uploads/" . $_POST['foto'];
+        $foto = $_FILES['foto'];
+
+        if ($foto['error'] === UPLOAD_ERR_OK) {
+            $extensao = strtolower(pathinfo($foto['name'], PATHINFO_EXTENSION));
+            $tamanhoMaximo = 10 * 1024 * 1024; // 10 MB
+    
+            // Validar tipo de arquivo
+            $tiposPermitidos = ['jpg', 'jpeg', 'png'];
+            if (!in_array($extensao, $tiposPermitidos)) {
+                die("Apenas arquivos JPG ou PNG são permitidos.");
+            }
+    
+            // Validar tamanho do arquivo
+            if ($foto['size'] > $tamanhoMaximo) {
+                die("O tamanho do arquivo não pode exceder 10 MB.");
+            }
+    
+            // Gerar nome único para o arquivo
+            $nomeImagem = uniqid() . "." . $extensao;
+            $destino = "./uploads/" . $nomeImagem;
+    
+            // Mover o arquivo para o diretório
+            if (!move_uploaded_file($foto['tmp_name'], $destino)) {
+                die("Erro ao salvar a imagem.");
+            }
+        } else if ($foto['error'] !== UPLOAD_ERR_NO_FILE) {
+            die("Erro ao fazer upload da imagem.");
+        }
     }
+  
 
 
-    $noticias->atualizar($id, $titulo, $autor, $data, $noticia, $foto);
+
+    $noticias->atualizar($id, $titulo, $autor, $data, $noticia, $destino);
     header('Location: gerenciadorNot.php');
     exit();
 }
@@ -54,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
     <a href="gerenciadorNot.php">voltar</a>
     <main>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div></div>
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
             <label for="titulo">titulo:</label>

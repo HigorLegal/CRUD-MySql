@@ -64,8 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Conversão da data para o formato americano
     $noticiaObj = new noticia($db);
 
-    $diretorio = 'caminho/para/a/pasta';
-
     // Salvar a notícia no banco de dados
     $noticiaObj->registrar($titulo, $autor, $dataPublicacao, $noticia, $destino);
 
