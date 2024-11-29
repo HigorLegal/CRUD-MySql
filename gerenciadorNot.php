@@ -33,18 +33,18 @@ if (isset($_GET['deletar'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador</title>
-    <link rel="stylesheet" href="root.css">
+
 </head>
 
 <body>
     <header>
         <h1>gerenciador de noticias</h1>
+        <div id="links">
+            <a href="logout.php">sair</a>
+            <a href="gerenciadorUsu.php">gerenciador de usuarios</a>
+            <a href="cadastrarNot.php">criar noticia</a>
+        </div>
     </header>
-    <div id="links">
-        <a href="logout.php">sair</a>
-        <a href="gerenciadorUsu.php">gerenciador de usuarios</a>
-        <a href="cadastrarNot.php">criar noticia</a>
-    </div>
     <main>
         <table border="1">
             <tr>
@@ -65,7 +65,7 @@ if (isset($_GET['deletar'])) {
                         echo $criador["nome"] ?></td>
 
                     <td id="foto"><img src="<?php echo $row['foto']; ?>" alt=""></td>
-                    <td>
+                    <td id="acoes">
                         <a href="deletarNot.php?id=<?php echo $row['id']; ?>"><img id="imgalt" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcx1AupvWZqkA2_GijfJIDCsc1xCNXVNOkDQ&s" alt=""></a>
                         <a href="editarNot.php?id=<?php echo $row['id']; ?>"><img id="imgex" src="https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_640.png" alt=""></a>
                     </td>
@@ -78,7 +78,26 @@ if (isset($_GET['deletar'])) {
 </html>
 
 <style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        background-color: white;
+    }
+
+
     @media screen and (min-width: 768px) {
+        header {
+            align-items: center;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            color: white;
+            background-color: black;
+            box-shadow: 0 0 200px black;
+        }
 
         main {
             display: flex;
@@ -86,17 +105,21 @@ if (isset($_GET['deletar'])) {
             justify-content: center
         }
 
+        table td{
+            padding: 10px;
+        }
         table {
             text-align: center;
-
             margin-top: 50px;
+            
+            font-size: 20px;
             background-color: black;
             color: white;
             border-color: #ffffff38;
         }
 
         #links {
-
+            gap: 30px;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -106,8 +129,8 @@ if (isset($_GET['deletar'])) {
         #links a {
             text-align: center;
             width: 100px;
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
             text-decoration: none;
             font-size: 20px;
             padding: 10px;
@@ -124,14 +147,24 @@ if (isset($_GET['deletar'])) {
             margin-left: 10px;
             border: 3px solid white;
             border-radius: 100%;
-            width: 30px;
-            height: 30px;
+            width: 50px;
+            height: 50px;
 
 
         }
     }
 
     @media screen and (max-width: 768px) {
+
+        header {
+            margin-bottom: 50px;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background-color: black;
+            box-shadow: 0 0 200px black;
+        }
+
         main {
             display: flex;
 
@@ -141,15 +174,18 @@ if (isset($_GET['deletar'])) {
         table {
 
             text-align: center;
-            font-size: 13px;
+            font-size: 14px;
             margin-top: 50px;
             background-color: black;
             color: white;
             border-color: #ffffff38;
         }
-
+#acoes{
+    display: flex;
+    flex-direction: column;
+}
         #links {
-
+ margin-top: 10px;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -159,8 +195,8 @@ if (isset($_GET['deletar'])) {
         #links a {
             text-align: center;
             width: 100px;
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
             text-decoration: none;
             font-size: 20px;
             padding: 10px;
@@ -169,8 +205,8 @@ if (isset($_GET['deletar'])) {
         }
 
         #foto img {
-            width: 50px;
-            height: 40px;
+            width: 70px;
+            height: 60px;
         }
 
         a img {

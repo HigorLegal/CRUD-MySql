@@ -54,20 +54,20 @@ function saudacao()
     <meta charset="UTF-8">
     <title>gerenciadorUsu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="root.css">
+
 </head>
 
 <body>
     <header>
         <h1>gerenciamento de usuarios</h1>
+        <div id="links">
+            <a href="logout.php">Logout</a>
+            <a href="gerenciadorNot.php">gerenciar noticias</a>
+            <a href="registrar.php">Adicionar Usuário</a>
+
+        </div>
     </header>
     <h1 id="msg"> <?php echo saudacao() . ", <b>" . $nome_usuario . "</b>"; ?>!</h1>
-    <div id="links">
-        <a href="logout.php">Logout</a>
-        <a href="gerenciadorNot.php">gerenciar noticias</a>
-        <a href="registrar.php">Adicionar Usuário</a>
-
-    </div>
     <br>
     <main>
 
@@ -95,14 +95,31 @@ function saudacao()
             <?php endwhile; ?>
         </table>
     </main>
+    
 </body>
 
 </html>
 
 <style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        background-color: white;
+    }
+
     @media screen and (min-width: 768px) {
-
-
+        header {
+            align-items: center;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            color: white;
+            background-color: black;
+            box-shadow: 0 0 200px black;
+        }
 
         #msg {
             margin-bottom: 20px;
@@ -119,16 +136,21 @@ function saudacao()
             justify-content: center
         }
 
+        table td{
+            padding: 10px;
+        }
         table {
             text-align: center;
             margin-top: 50px;
+            
+            font-size: 20px;
             background-color: black;
             color: white;
-            border-color: black;
+            border-color: #ffffff38;
         }
 
         #links {
-
+            gap: 20px;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -138,8 +160,8 @@ function saudacao()
         #links a {
             text-align: center;
             width: 100px;
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
             text-decoration: none;
             font-size: 20px;
             padding: 10px;
@@ -151,14 +173,22 @@ function saudacao()
             margin-left: 10px;
             border: 3px solid white;
             border-radius: 100%;
-            width: 30px;
-            height: 30px;
+            width: 50px;
+            height: 50px;
 
 
         }
     }
 
     @media screen and (max-width: 768px) {
+        header {
+            margin-bottom: 50px;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background-color: black;
+            box-shadow: 0 0 200px black;
+        }
 
         #msg {
             margin-bottom: 20px;
@@ -196,8 +226,8 @@ function saudacao()
         #links a {
             text-align: center;
             width: 100px;
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
             text-decoration: none;
             font-size: 20px;
             padding: 10px;

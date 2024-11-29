@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Adicionar Usuário</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="root.css">
+  
 </head>
 
 <body>
@@ -63,10 +63,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input id="button" type="submit" value="Adicionar">
         </form>
     </main>
+   
 </body>
 
 </html>
 <style>
+    * {
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background-color: black;
+    box-shadow: 0 0 200px black;
+}
+
     @media screen and (min-width: 768px) {
         a {
             background-color: black;

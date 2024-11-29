@@ -41,13 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>A U T E N T I C A Ç Ã O</title>
-    <link rel="stylesheet" href="root.css">
+
 </head>
 
 
 <body>
     <header>
+
         <h1>AUTENTICAÇÃO</h1>
+
     </header>
 
 
@@ -75,11 +77,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </main>
 
+
+
 </body>
 
 
 </html>
 <style>
+    
+    * {
+        margin: 0;
+    }
+
+    body {
+        background-color: white;
+    }
+
+
+    header {
+        margin-bottom: 50px;
+        text-align: center;
+        padding: 20px;
+        color: white;
+        background-color: black;
+        box-shadow: 0 0 200px black;
+    }
+
     #mensagem p {
         margin-bottom: 10px;
         margin-top: 10px;

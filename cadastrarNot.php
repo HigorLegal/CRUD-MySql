@@ -19,6 +19,8 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  
+
     $diretorio = "./uploads";
 
     if (!is_dir($diretorio)) {
@@ -68,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $noticiaObj->registrar($titulo, $autor, $dataPublicacao, $noticia, $destino);
 
     $msg = "noticia publicada com sucesso";
+
 }
 ?>
 <!DOCTYPE html>
@@ -77,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Adicionar noticia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="root.css">
+  
 </head>
 
 <body>
@@ -85,13 +88,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <header>
             <h1>Publicar Noticia</h1>
         </header>
-        <a href="gerenciadorNot.php">gerenciadorNot de noticias</a>
+        <a href="gerenciadorNot.php">voltar</a>
         <form method="POST" enctype="multipart/form-data">
             <label for="titulo">titulo:</label>
             <input type="text" name="titulo" required>
-
+            
+            <label for="autor">escolha o autor:</label>
             <select name="autor" require>
-                <option value="">escolha o autor</option>
+                
                 <?php foreach ($usuarios as $usuario): ?>
                     <option value="<?php echo $usuario['id']; ?>">
                         <?php echo htmlspecialchars($usuario["nome"]); ?>
@@ -103,12 +107,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="date" name="data" required>
 
             <label for="noticia">informaçoes da noticia:</label>
-            <textarea id="noticia" name="noticia" rows="8" cols="30"></textarea>
+            <textarea id="noticia" name="noticia" rows="8" cols="30" required></textarea>
 
             <label for="imagem">imagem da noticia:</label>
             <input type="file" name="imagem" id="imagem" accept="jpg,png" required>
 
-            <input id="button" type="submit" value="Adicionar">
+            <input id="button" type="submit" value="Adicionar" >
             <?php echo "<h1>" . $msg . "</h1>" ?>
         </form>
     </main>
@@ -116,6 +120,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </html>
 <style>
+    * {
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background-color: black;
+    box-shadow: 0 0 200px black;
+}
+
     @media screen and (min-width: 768px) {
         select {
             margin-top: 5px;

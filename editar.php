@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <title>Editar Usuário</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="root.css">
+  
 </head>
 
 <body>
@@ -67,6 +67,23 @@ if (isset($_GET['id'])) {
 
 </html>
 <style>
+    * {
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background-color: black;
+    box-shadow: 0 0 200px black;
+}
+
     @media screen and (min-width: 768px) {
         #button {
             background-color: black;

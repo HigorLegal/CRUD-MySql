@@ -79,7 +79,6 @@ function saudacao()
 
 
 
-
 <style>
     #linha {
         margin-top: 50px;
@@ -101,7 +100,7 @@ function saudacao()
         text-align: center;
         padding: 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         color: white;
         background-color: black;
         box-shadow: 0 0 200px black;
@@ -125,7 +124,7 @@ function saudacao()
 
         #noticia p {
             font-size: 15px;
-        }
+        }   
 
         #noticia h1 {
             color: red;
@@ -141,7 +140,6 @@ function saudacao()
             padding: 10px;
             display: flex;
             flex-direction: column;
-            text-align: center;
             align-items: center;
         }
 
